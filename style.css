@@ -1,0 +1,180 @@
+/* Landon Fox -- portfolio site
+   Single stylesheet, no framework, no build step. Light and dark both handled
+   via prefers-color-scheme. The design goal is "considered but not designed" --
+   this should read as a person who writes carefully, not as a template. */
+
+:root {
+  --bg: #fdfdfc;
+  --fg: #1a1a18;
+  --muted: #6a6a64;
+  --rule: #e2e2dd;
+  --link: #14507a;
+  --accent: #8a3a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16171a;
+    --fg: #e4e4e0;
+    --muted: #97978f;
+    --rule: #2e3034;
+    --link: #7fb5dd;
+    --accent: #d9926a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  font-size: 18px;
+  line-height: 1.62;
+  margin: 0 auto;
+  max-width: 40rem;
+  padding: 3.5rem 1.5rem 4rem;
+}
+
+/* --- header ------------------------------------------------------------- */
+
+header { margin-bottom: 3rem; }
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0 0 1rem;
+}
+
+nav {
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+  font-size: 0.94rem;
+}
+
+nav a { margin-right: 1.4rem; }
+
+/* --- typography --------------------------------------------------------- */
+
+h2 {
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.45rem;
+  margin: 0 0 1.5rem;
+}
+
+h3 {
+  font-size: 1.28rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0 0 1rem; }
+
+.lede { font-size: 1.1rem; }
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 32%, transparent);
+}
+
+a:hover {
+  border-bottom-color: var(--link);
+}
+
+section { margin-bottom: 3.2rem; }
+
+/* --- projects ----------------------------------------------------------- */
+
+.project {
+  margin-bottom: 2.6rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--rule);
+}
+
+.project:hover { border-left-color: var(--accent); }
+
+/* Small grey note for the technically curious, set off from the plain-language
+   description above it. Keeps the "here's what broke" detail available without
+   making it the first thing anyone reads. */
+.aside {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+code {
+  font-family: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: color-mix(in srgb, var(--muted) 12%, transparent);
+  padding: 0.1em 0.32em;
+  border-radius: 3px;
+}
+
+.links { font-size: 0.94rem; margin-bottom: 0; }
+
+.sep { color: var(--muted); margin: 0 0.35rem; }
+
+.pending {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* --- publications ------------------------------------------------------- */
+
+.pubs { list-style: none; padding: 0; margin: 0; }
+
+.pubs li {
+  margin-bottom: 1.15rem;
+  font-size: 0.97rem;
+  color: var(--muted);
+}
+
+.pub-title { color: var(--fg); font-style: italic; }
+
+/* --- education ---------------------------------------------------------- */
+
+.edu { margin: 0 0 1.4rem; }
+
+.edu dt {
+  font-weight: 600;
+  margin-top: 1.1rem;
+}
+
+.edu dt:first-child { margin-top: 0; }
+
+.edu dd {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.detail { font-size: 0.92rem; }
+
+/* --- footer ------------------------------------------------------------- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+footer p { margin: 0; }
+
+/* --- small screens ------------------------------------------------------ */
+
+@media (max-width: 32rem) {
+  body { font-size: 17px; padding: 2.5rem 1.2rem 3rem; }
+  h1 { font-size: 1.8rem; }
+  nav a { margin-right: 1rem; }
+  .project { padding-left: 0.85rem; }
+}
